@@ -23,7 +23,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::prefix('admin')->group(function () {
+
+// ->middleware(['auth']) ->  only loggin user can access and isAmin middle ware for where user is admin or normal user
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
 });

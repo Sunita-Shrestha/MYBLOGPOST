@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Blog Dashboard')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

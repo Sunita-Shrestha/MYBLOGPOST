@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Traitc\TraitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('post/{post_id}', [PostController::class, 'edit']);
     Route::put('update-post/{post_id}', [PostController::class, 'update']);
     Route::get('delete-post/{post_id}', [PostController::class, 'destroy']);
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('user/{$user_id}', [UserController::class, 'index']);
 
 });
 

@@ -23,6 +23,10 @@
 
                 <table class="table table-bordered">
                     <thead>
+
+                        <tr>{{$value1}}</tr>
+                        <br>
+                        <tr>{{$value2}}</tr>
                         <tr>
                             <th>ID</th>
                             <th>Category Name</th>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Traits\Common;
 
 use App\Http\Requests\Admin\CategoryFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
@@ -15,11 +16,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
-    //
+    use Common;  // trait
     public function index()
     {
+        $data['value1'] = $this->fun1();
+        $data['value2'] = $this->status(1);
+
+
+
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        return view('admin.category.index', $data, compact('category'));
     }
 
     public function create()
@@ -103,9 +109,7 @@ class CategoryController extends Controller
         }
         else{
             return redirect('admin/category')->with('message','No category found');
-
-
-        }
+              }
 
 
     }

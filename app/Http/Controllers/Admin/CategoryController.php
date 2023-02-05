@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\File;
 
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -38,7 +40,7 @@ class CategoryController extends Controller
 
         $catetory = new Category();
         $catetory->title = $data['title'];
-        $catetory->slug = $data['slug'];
+        $catetory->slug = Str::slug($data['slug']);
         $catetory->description = $data['description'];
         // $catetory->image = $data['image'];
         if($request->hasFile('image')){
@@ -72,7 +74,7 @@ class CategoryController extends Controller
 
         $category =  Category::find($category_id);
         $category->title = $data['title'];
-        $category->slug = $data['slug'];
+        $category->slug = Str::slug($data['slug']);
         $category->description = $data['description'];
         // $catetory->image = $data['image'];
         if($request->hasFile('image')){

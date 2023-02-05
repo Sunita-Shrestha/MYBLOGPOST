@@ -17,9 +17,7 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -37,7 +35,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-category/{category_id}', [CategoryController::class, 'update']);
     Route::get('delete-category/{category_id}', [CategoryController::class, 'delete']);
 
-    Route::get('posts', [PostController::class, 'index']);
+    Route::get('posts', [PostController::class, 'index'])->name('admin.post');
     Route::get('add-post', [PostController::class, 'create']);
     Route::post('add-post', [PostController::class, 'store']);
     Route::get('post/{post_id}', [PostController::class, 'edit']);
